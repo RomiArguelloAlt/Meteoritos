@@ -6,9 +6,7 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 387.723, 86.6578 )
-gravity_scale = 5.0
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 394.741, 243.689 )
 mode = 1
-gravity_scale = 0.0
