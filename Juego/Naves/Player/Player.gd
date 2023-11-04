@@ -8,10 +8,11 @@ export var potencia_rotacion:int = 280
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
 
+##Atributos onready
+onready var canion:Canion = $Canion
+
 ## Metodos
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
-	rad2deg(rotation)
-	empuje.rotated(rotation)
 	apply_central_impulse(empuje.rotated(rotation))
 	apply_torque_impulse( dir_rotacion * potencia_rotacion)
 
@@ -28,23 +29,19 @@ func player_input() -> void:
 		empuje = Vector2(potencia_motor, 0)
 	elif Input.is_action_pressed("mover_atras"):
 		empuje = Vector2(-potencia_motor, 0)
+	
 	## Rotacion
 	dir_rotacion = 0
 	if Input.is_action_pressed("rotar_antihorario"):
 		dir_rotacion -= 1
 	elif Input.is_action_pressed("rotar_horario"):
 		dir_rotacion += 1
+	
+	#Disparo
+	if Input.is_action_pressed("disparo_principal"):
+		canion.set_esta_disparando(true)
+		
+	if Input.is_action_just_released("disparo_principal"):
+		canion.set_esta_disparando(false)
 
 
-
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
