@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ExplosionNave.wav-95b48dc9767849d14abd7bfa96961207.sample"
+
+[deps]
+
+source_file="res://Juego/EfectosDeSonido/ExplosionNave.wav"
+dest_files=[ "res://.import/ExplosionNave.wav-95b48dc9767849d14abd7bfa96961207.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
