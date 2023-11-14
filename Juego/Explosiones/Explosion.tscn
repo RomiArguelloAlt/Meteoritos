@@ -3,7 +3,11 @@
 [ext_resource path="res://Juego/Explosiones/sparkle.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Explosiones/explosion_gradient.tres" type="Texture" id=2]
 [ext_resource path="res://Juego/Explosiones/puff.png" type="Texture" id=3]
+HEAD
 [ext_resource path="res://Juego/EfectosDeSonido/ExplosionNave.wav" type="AudioStream" id=4]
+
+[ext_resource path="res://TemporalAssets/kenney_sci-fi-sounds/Audio/explosionCrunch_001.ogg" type="AudioStream" id=4]
+dev_player
 [ext_resource path="res://Juego/Explosiones/puff_smooth.png" type="Texture" id=5]
 [ext_resource path="res://Juego/Explosiones/scraps_gradient.tres" type="Texture" id=6]
 
@@ -258,7 +262,10 @@ texture = ExtResource( 5 )
 
 [node name="FireTrailParticles2D2" type="Particles2D" parent="FireTrails"]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
+HEAD
 emitting = false
+
+dev_player
 amount = 50
 lifetime = 0.5
 randomness = 0.5
@@ -269,7 +276,10 @@ texture = ExtResource( 5 )
 
 [node name="FireTrailParticles2D3" type="Particles2D" parent="FireTrails"]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
+HEAD
 emitting = false
+
+dev_player
 amount = 50
 lifetime = 0.5
 randomness = 0.5
@@ -280,7 +290,10 @@ texture = ExtResource( 5 )
 
 [node name="FireTrailParticles2D4" type="Particles2D" parent="FireTrails"]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
+HEAD
 emitting = false
+
+dev_player
 amount = 50
 lifetime = 0.5
 randomness = 0.5
