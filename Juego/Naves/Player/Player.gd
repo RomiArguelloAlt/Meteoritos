@@ -8,6 +8,7 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 export var potencia_motor:int = 20
 export var potencia_rotacion:int = 280
 export var estela_maxima:int = 150
+export var hitpoints:float = 15.0
 
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
@@ -124,3 +125,8 @@ func destruir() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawn":
 		controlador_estados(ESTADO.VIVO)
+
+func recibir_danio(danio: float) -> void:
+	hitpoints-= danio
+	if hitpoints <= 0.0:
+		destruir()
