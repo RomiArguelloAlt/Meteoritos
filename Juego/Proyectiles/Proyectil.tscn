@@ -4,7 +4,7 @@
 [ext_resource path="res://Juego/Proyectiles/Proyectil.gd" type="Script" id=2]
 
 [node name="Proyectil" type="Area2D"]
-z_as_relative = false
+z_index = 50
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
@@ -21,4 +21,6 @@ texture = ExtResource( 1 )
 position = Vector2( 0, 0.187287 )
 scale = Vector2( 1, 0.700339 )
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
