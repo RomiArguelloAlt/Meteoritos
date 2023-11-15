@@ -73,6 +73,7 @@ __meta__ = {
 }
 
 [node name="Canion" parent="." instance=ExtResource( 4 )]
+modulate = Color( 0.4, 4.5, 1.8, 1 )
 proyectil = ExtResource( 6 )
 
 [node name="DisparoIzquierdo" parent="Canion" index="0"]
