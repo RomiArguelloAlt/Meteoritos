@@ -20,7 +20,7 @@ onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D2
-
+onready var impacto_sfx:AudioStreamPlayer = $ImpactosSFX
 ## Metodos
 
 func _ready() -> void:
@@ -130,3 +130,5 @@ func recibir_danio(danio: float) -> void:
 	hitpoints-= danio
 	if hitpoints <= 0.0:
 		destruir()
+	
+	impacto_sfx.play()
