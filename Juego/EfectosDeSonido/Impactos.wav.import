@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Impactos.wav-a29d455e5baf0a3ca3f76a8bab1cf4b7.sample"
+
+[deps]
+
+source_file="res://Juego/EfectosDeSonido/Impactos.wav"
+dest_files=[ "res://.import/Impactos.wav-a29d455e5baf0a3ca3f76a8bab1cf4b7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
