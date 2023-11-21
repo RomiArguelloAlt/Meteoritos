@@ -1,8 +1,13 @@
 class_name Escudo
 extends Area2D
 #Variables Export
+
+export var energia:float = 8.0
+export var radio_desgaste:float = -1.6
+
 export var energia:float = 4.0
 export var radio_desgaste:float = -1.0
+
 #Variables
 var esta_activado:bool = false setget ,get_esta_activado
 
@@ -13,8 +18,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	energia += radio_desgaste * delta
+
+	
+	if energia <= 0.0:
+
 	if energia <= 0.0:
 		esta_activado = false
+
 		desactivar()
 
 

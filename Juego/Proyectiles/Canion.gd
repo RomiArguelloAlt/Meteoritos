@@ -6,7 +6,7 @@ extends Node2D
 export var proyectil:PackedScene = null
 export var cadencia_disparo:float = 0.8
 export var velocidad_proyectil:int = 100
-export var danio_proyectil:int = 1
+export var danio_proyectil:int = 1000
 
 #Atributos Onready
 onready var timer_enfriamiento:Timer = $TimerEnfriamiento

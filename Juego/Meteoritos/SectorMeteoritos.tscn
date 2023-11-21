@@ -1,0 +1,355 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawnear.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.gd" type="Script" id=2]
+[ext_resource path="res://Juego/EfectosDeSonido/Advertencia.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 538.076, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 543.656, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 983.681, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 979.053, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 897.771, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 907.778, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1404.2, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1410.19, 10 )
+
+[sub_resource type="GDScript" id=9]
+script/source = "
+extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	pass
+"
+
+[sub_resource type="Animation" id=10]
+resource_name = "advertencia"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -22.75 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Timer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="SectorMeteoritos" type="Node2D"]
+position = Vector2( 1454.71, 862.051 )
+script = ExtResource( 2 )
+
+[node name="BordeNavePlayer" type="Node2D" parent="."]
+
+[node name="BordeIzquierdo" type="StaticBody2D" parent="BordeNavePlayer"]
+position = Vector2( -960, 0 )
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeNavePlayer/BordeIzquierdo"]
+position = Vector2( -8.8728, 22.7271 )
+shape = SubResource( 1 )
+
+[node name="BordeDerecho" type="StaticBody2D" parent="BordeNavePlayer"]
+position = Vector2( 960, 0 )
+rotation = 1.5708
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeNavePlayer/BordeDerecho"]
+position = Vector2( -3.76221, -16 )
+shape = SubResource( 2 )
+
+[node name="BordeSuperior" type="StaticBody2D" parent="BordeNavePlayer"]
+position = Vector2( 0, -540 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeNavePlayer/BordeSuperior"]
+shape = SubResource( 3 )
+
+[node name="BordeInferior" type="StaticBody2D" parent="BordeNavePlayer"]
+position = Vector2( 0, 540 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeNavePlayer/BordeInferior"]
+position = Vector2( -13.1895, 0 )
+shape = SubResource( 4 )
+
+[node name="DetectorFueraZona" type="Node2D" parent="."]
+
+[node name="DetectorIzquierda" type="Area2D" parent="DetectorFueraZona"]
+position = Vector2( -1400, 0 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorFueraZona/DetectorIzquierda"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="DetectorDerecha" type="Area2D" parent="DetectorFueraZona"]
+position = Vector2( 1400, 0 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorFueraZona/DetectorDerecha"]
+position = Vector2( 0, -16 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="DetectorSuperior" type="Area2D" parent="DetectorFueraZona"]
+position = Vector2( 0, -900 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorFueraZona/DetectorSuperior"]
+shape = SubResource( 7 )
+
+[node name="DetectorInferior" type="Area2D" parent="DetectorFueraZona"]
+position = Vector2( 0, 900 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorFueraZona/DetectorInferior"]
+shape = SubResource( 8 )
+
+[node name="Spawners" type="Node2D" parent="."]
+position = Vector2( -90.9814, 71.224 )
+
+[node name="MeteoritoSpawnear" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1142.45, -508.572 )
+
+[node name="MeteoritoSpawnear2" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -839.285, -765.306 )
+
+[node name="MeteoritoSpawnear3" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 627.857, 674.694 )
+
+[node name="MeteoritoSpawnear4" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1263.27, 538.776 )
+
+[node name="MeteoritoSpawnear5" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1044.69, -7.5509 )
+direccion = Vector2( 2, 2 )
+
+[node name="MeteoritoSpawnear6" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1238.36, -279.387 )
+direccion = Vector2( 2, 2 )
+
+[node name="MeteoritoSpawnear7" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -739.998, 707.138 )
+direccion = Vector2( 2, 2 )
+
+[node name="MeteoritoSpawnear8" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 264.285, -784.898 )
+direccion = Vector2( 2, 2 )
+
+[node name="MeteoritoSpawnear9" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1096.02, 513.468 )
+direccion = Vector2( -1, -1 )
+
+[node name="MeteoritoSpawnear10" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 853.262, -792.854 )
+direccion = Vector2( -1, -1 )
+
+[node name="MeteoritoSpawnear11" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1185.51, -771.326 )
+direccion = Vector2( -1, -1 )
+
+[node name="MeteoritoSpawnear12" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -151.02, 665.612 )
+direccion = Vector2( -1, -1 )
+
+[node name="MeteoritoSpawnear13" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1057.43, 317.142 )
+direccion = Vector2( 1, 0 )
+
+[node name="MeteoritoSpawnear14" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1238.2, 218.979 )
+direccion = Vector2( 1, 0 )
+
+[node name="MeteoritoSpawnear15" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -105.714, -791.551 )
+direccion = Vector2( -1, 0 )
+
+[node name="MeteoritoSpawnear16" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1265.39, -815.508 )
+direccion = Vector2( 0, -1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+script = SubResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.25 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.34902, 0.215686, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.587
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -73.0
+margin_right = 46.0
+margin_bottom = -42.0
+text = "ADVERTENCIA:
+LLUVIA DE METEORITOS INMINENTE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -22.75
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "advertencia"
+anims/advertencia = SubResource( 10 )
+anims/default = SubResource( 11 )
+
+[connection signal="body_entered" from="DetectorFueraZona/DetectorIzquierda" to="." method="_on_DetectorIzquierda_body_entered"]
+[connection signal="body_entered" from="DetectorFueraZona/DetectorDerecha" to="." method="_on_DetectorDerecha_body_entered"]
+[connection signal="body_entered" from="DetectorFueraZona/DetectorSuperior" to="." method="_on_DetectorSuperior_body_entered"]
+[connection signal="body_entered" from="DetectorFueraZona/DetectorInferior" to="." method="_on_DetectorInferior_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_SpawnTimer_timeout"]

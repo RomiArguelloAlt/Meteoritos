@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Explosion_meteorito.wav-6c73c36a4a09e702d6ce18f063b21423.sample"
+
+[deps]
+
+source_file="res://Juego/EfectosDeSonido/Explosion_meteorito.wav"
+dest_files=[ "res://.import/Explosion_meteorito.wav-6c73c36a4a09e702d6ce18f063b21423.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
