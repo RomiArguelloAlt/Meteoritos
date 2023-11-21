@@ -5,6 +5,8 @@
 [ext_resource path="res://Juego/EfectosDeSonido/Laser_shoot 19.wav" type="AudioStream" id=3]
 
 [node name="Canion" type="Node2D"]
+z_index = 45
+z_as_relative = false
 script = ExtResource( 1 )
 proyectil = ExtResource( 2 )
 cadencia_disparo = 0.25

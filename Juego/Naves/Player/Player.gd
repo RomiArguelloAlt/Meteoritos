@@ -124,3 +124,19 @@ func destruir() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawn":
 		controlador_estados(ESTADO.VIVO)
+<<<<<<< Updated upstream
+=======
+
+func recibir_danio(danio: float) -> void:
+	hitpoints-= danio
+	if hitpoints <= 0.0:
+		destruir()
+	
+	impacto_sfx.play()
+
+
+func _on_body_entered(body: Node) -> void:
+	if body is Meteorito:
+		body.destruir()
+		destruir()
+>>>>>>> Stashed changes
